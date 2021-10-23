@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android.extensions'
+}
+apply from: "${rootDir}/buildsystem/dependencies.gradle"
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.covidcasesanalysis"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$versions.android_corektx"
+    implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
+    implementation "com.google.android.material:material:$versions.androidx_material"
+    implementation "com.google.dagger:dagger:$versions.dagger"
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    implementation "com.squareup.okhttp3:okhttp:$versions.okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+    implementation "com.squareup.picasso:picasso:$versions.picasso"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.androidx_constraint_layout"
+    testImplementation "junit:junit:$versions.junit"
+    androidTestImplementation "androidx.test.ext:junit:$versions.androidx_UnitTest"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx_EspressoCore"
+}
