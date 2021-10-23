@@ -37,6 +37,7 @@ class CountryCasesDetail : AppCompatActivity() {
         binding.tvCountryName.text = country.country
         binding.tvCasesValue.text = country.cases.toString()
         binding.tvDeathValue.text = country.deaths.toString()
+        binding.tvTestValue.text = country.tests.toString()
         binding.tvPopulationValue.text = country.population.toString()
     }
 }
